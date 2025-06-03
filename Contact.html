@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - Modern Vibrant Design</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1e1f2b;
+            --secondary: #4a4e69;
+            --accent: #ff6b6b;
+            --vibrant-1: #6a67ce;
+            --vibrant-2: #48bb78;
+            --vibrant-3: #ffb86c;
+            --light: #f8f9fa;
+            --dark: #1e1f2b;
+            --instagram: #e1306c;
+            --facebook: #1877f2;
+            --email: #d44638;
+            --whatsapp: #25d366;
+            --card-bg: #ffffff;
+            --background: #0f111a;
+            --nav-bg: linear-gradient(90deg, var(--vibrant-1), #5a56c5);
+            --container-bg: linear-gradient(145deg, #23263a, #1c1f30);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url(backgronn.png);
+            color: var(--light);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Overlay untuk meningkatkan keterbacaan */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(106, 103, 206, 0.15) 0%, rgba(15, 17, 26, 0) 70%);
+            z-index: 0;
+        }
+
+        nav {
+            background: var(--nav-bg);
+            padding: 15px 40px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            width: 100%;
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        nav a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+            z-index: -1;
+        }
+
+        nav a:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        nav a:hover::before {
+            transform: translateY(0);
+        }
+
+        nav a.active {
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3) inset;
+        }
+
+        nav a i {
+            font-size: 1.4rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            width: 100%;
+            background: var(--container-bg);
+            border-radius: 25px;
+            box-shadow: 
+                0 15px 50px rgba(0, 0, 0, 0.35),
+                0 0 0 1px rgba(106, 103, 206, 0.1);
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out forwards;
+            padding: 50px 40px;
+            z-index: 1;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(155, 89, 182, 0.1), transparent);
+            transform: rotate(30deg);
+            animation: shine 8s infinite;
+            z-index: 0;
+        }
+
+        @keyframes shine {
+            0% { transform: rotate(30deg) translateX(-100%); }
+            100% { transform: rotate(30deg) translateX(100%); }
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            padding-bottom: 25px;
+        }
+
+        .header::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--vibrant-1), var(--vibrant-2));
+            border-radius: 2px;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--vibrant-1), var(--vibrant-2));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .header p {
+            font-size: 1.4rem;
+            color: #a0a7c2;
+            font-weight: 500;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .contact-card {
+            background: linear-gradient(145deg, #2a2d42, #24273a);
+            border-radius: 20px;
+            padding: 35px 30px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.25),
+                0 0 0 1px rgba(106, 103, 206, 0.1);
+            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .contact-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--vibrant-3);
+            z-index: 1;
+        }
+
+        .contact-card.instagram::before {
+            background: var(--instagram);
+        }
+        
+        .contact-card.facebook::before {
+            background: var(--facebook);
+        }
+        
+        .contact-card.email::before {
+            background: var(--email);
+        }
+        
+        .contact-card.whatsapp::before {
+            background: var(--whatsapp);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.35),
+                0 0 0 1px rgba(106, 103, 206, 0.2);
+        }
+
+        .contact-icon {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 2.8rem;
+            transition: all 0.4s ease;
+            position: relative;
+            background: linear-gradient(145deg, #2a2d42, #1e2133);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+            border: 3px solid rgba(106, 103, 206, 0.15);
+        }
+
+        .contact-card.instagram .contact-icon {
+            color: var(--instagram);
+            background: linear-gradient(145deg, #2a2d42, #1e2133);
+        }
+        
+        .contact-card.facebook .contact-icon {
+            color: var(--facebook);
+            background: linear-gradient(145deg, #2a2d42, #1e2133);
+        }
+        
+        .contact-card.email .contact-icon {
+            color: var(--email);
+            background: linear-gradient(145deg, #2a2d42, #1e2133);
+        }
+        
+        .contact-card.whatsapp .contact-icon {
+            color: var(--whatsapp);
+            background: linear-gradient(145deg, #2a2d42, #1e2133);
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+            border-color: rgba(106, 103, 206, 0.3);
+        }
+
+        .contact-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: white;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .contact-card h3::after {
+            content: "";
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background: var(--vibrant-2);
+            border-radius: 2px;
+        }
+
+        .contact-card.instagram h3::after {
+            background: var(--instagram);
+        }
+        
+        .contact-card.facebook h3::after {
+            background: var(--facebook);
+        }
+        
+        .contact-card.email h3::after {
+            background: var(--email);
+        }
+        
+        .contact-card.whatsapp h3::after {
+            background: var(--whatsapp);
+        }
+
+        .contact-info {
+            font-size: 1.2rem;
+            color: #a0a7c2;
+            margin-bottom: 30px;
+            font-weight: 500;
+            flex-grow: 1;
+        }
+
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            gap: 10px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            backdrop-filter: blur(5px);
+        }
+
+        .contact-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.4s ease;
+            z-index: -1;
+        }
+
+        .contact-card.instagram .contact-btn {
+            background: rgba(225, 48, 108, 0.15);
+            border-color: rgba(225, 48, 108, 0.25);
+        }
+        
+        .contact-card.facebook .contact-btn {
+            background: rgba(24, 119, 242, 0.15);
+            border-color: rgba(24, 119, 242, 0.25);
+        }
+        
+        .contact-card.email .contact-btn {
+            background: rgba(212, 70, 56, 0.15);
+            border-color: rgba(212, 70, 56, 0.25);
+        }
+        
+        .contact-card.whatsapp .contact-btn {
+            background: rgba(37, 211, 102, 0.15);
+            border-color: rgba(37, 211, 102, 0.25);
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .contact-btn:hover::before {
+            transform: translateX(100%);
+        }
+
+        .contact-card.instagram .contact-btn:hover {
+            background: rgba(225, 48, 108, 0.3);
+            box-shadow: 0 12px 25px rgba(225, 48, 108, 0.3);
+        }
+        
+        .contact-card.facebook .contact-btn:hover {
+            background: rgba(24, 119, 242, 0.3);
+            box-shadow: 0 12px 25px rgba(24, 119, 242, 0.3);
+        }
+        
+        .contact-card.email .contact-btn:hover {
+            background: rgba(212, 70, 56, 0.3);
+            box-shadow: 0 12px 25px rgba(212, 70, 56, 0.3);
+        }
+        
+        .contact-card.whatsapp .contact-btn:hover {
+            background: rgba(37, 211, 102, 0.3);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.3);
+        }
+
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #a0a7c2;
+            font-size: 1rem;
+            position: relative;
+            z-index: 2;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            nav a {
+                justify-content: center;
+                padding: 15px;
+            }
+            
+            .container {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header p {
+                font-size: 1.2rem;
+            }
+            
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html"><i class="fas fa-home"></i> HOME</a></li>
+            <li><a href="About.html"><i class="fas fa-user"></i> ABOUT ME</a></li>
+            <li><a href="Contact.html" class="active"><i class="fas fa-envelope"></i> CONTACT ME</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="header">
+            <h1>HUBUNGI SAYA</h1>
+            <p>Pilih platform yang Anda inginkan untuk terhubung dengan saya</p>
+        </div>
+        
+        <div class="contact-grid">
+            <!-- Instagram -->
+            <div class="contact-card instagram">
+                <div class="contact-icon">
+                    <i class="fab fa-instagram"></i>
+                </div>
+                <h3>Instagram</h3>
+                <p class="contact-info">@hendra.dinata.yay</p>
+                <a href="https://www.instagram.com/hendra.dinata.yay?igsh=czlzb3E0OGNlNWlr" target="_blank" class="contact-btn">
+                    <i class="fab fa-instagram"></i> Kirim Pesan
+                </a>
+            </div>
+            
+            <!-- Facebook -->
+            <div class="contact-card facebook">
+                <div class="contact-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </div>
+                <h3>Facebook</h3>
+                <p class="contact-info">Hendra Dinata</p>
+                <a href="https://www.facebook.com/share/18sGMToWzW/" target="_blank" class="contact-btn">
+                    <i class="fab fa-facebook-f"></i> Kirim Pesan
+                </a>
+            </div>
+            
+            <!-- Email -->
+            <div class="contact-card email">
+                <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email</h3>
+                <p class="contact-info">hendradinata806@gmail.com</p>
+                <a href="mailto:hendradinata806@gmail.com" class="contact-btn">
+                    <i class="fas fa-envelope"></i> Kirim Email
+                </a>
+            </div>
+            
+            <!-- WhatsApp -->
+            <div class="contact-card whatsapp">
+                <div class="contact-icon">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3>WhatsApp</h3>
+                <p class="contact-info">+62 812-3807-6908</p>
+                <a href="https://wa.me/081238076908" target="_blank" class="contact-btn">
+                    <i class="fab fa-whatsapp"></i> Chat Sekarang
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>&copy; 2025 Hendra Dinata | SMKN 1 Denpasar | All Rights Reserved</p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const contactCards = document.querySelectorAll('.contact-card');
+            
+            contactCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 300 * index);
+            });
+            
+            // Efek hover untuk menu navigasi
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px) scale(1.05)';
+                });
+                
+                link.addEventListener('mouseleave', function() {
+                    if (!this.classList.contains('active')) {
+                        this.style.transform = 'translateY(0) scale(1)';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
